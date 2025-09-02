@@ -1,66 +1,46 @@
+import Navbar from "./components/sections/Navbar";
+import "./index.css";
+
 export default function App() {
-  const pangram =
-    "El veloz murciélago hindú comía feliz cardillo y kiwi. 0123456789";
   return (
-    <section className="max-w-5xl mx-auto p-6 space-y-10">
-      {/* Avenir Next LT Pro */}
-      <div className="space-y-3">
-        <h2 className="text-xl font-medium">
-          Avenir Next LT Pro — <code className="text-white/70">font-sans</code>
-        </h2>
-        <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-1 font-sans">
-          <p className="text-sm text-white/70">Light 300</p>
-          <p className="font-light">{pangram}</p>
+    <div id="top">
+      <Navbar />
+      <main id="main">
+        <section id="program" className="scroll-mt-24 py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+              Transformá tus hábitos con un método que sí se sostiene
+            </h1>
+            <p className="mt-4 text-white/80 max-w-2xl">
+              Acompañamiento personalizado + 3 métodos probados para lograr
+              resultados medibles.
+            </p>
+          </div>
+        </section>
 
-          <p className="mt-3 text-sm text-white/70">Normal 400</p>
-          <p className="font-normal">{pangram}</p>
+        <section id="breakdown" className="scroll-mt-24 py-20 bg-gray-900/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-semibold">Cómo funciona</h2>
+            <p className="mt-3 text-white/80">Paso 1, 2 y 3…</p>
+          </div>
+        </section>
 
-          <p className="mt-3 text-sm text-white/70">Medium 500</p>
-          <p className="font-medium">{pangram}</p>
+        <section id="pricing" className="scroll-mt-24 py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-semibold">Precios</h2>
+            <p className="mt-3 text-white/80">Planes y beneficios…</p>
+          </div>
+        </section>
 
-          <p className="mt-3 text-sm text-white/70">ExtraBold 800</p>
-          <p className="font-extrabold">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Black 900</p>
-          <p className="font-black">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">
-            Italic (usa las Oblique reales)
-          </p>
-          <p className="italic font-normal">{pangram}</p>
-        </div>
-      </div>
-
-      {/* Gotham */}
-      <div className="space-y-3">
-        <h2 className="text-xl font-medium">
-          Gotham — <code className="text-white/70">font-gotham</code>
-        </h2>
-        <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-1 font-gotham">
-          <p className="text-sm text-white/70">Thin 100</p>
-          <p className="font-thin">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Light 300</p>
-          <p className="font-light">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Book 400</p>
-          <p className="font-normal">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Medium 500</p>
-          <p className="font-medium">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Bold 700</p>
-          <p className="font-bold">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Black/Ultra 900</p>
-          <p className="font-black">{pangram}</p>
-
-          <p className="mt-3 text-sm text-amber-400/80">
-            *No uses <code>italic</code> en Gotham si no tenés las cursivas;
-            evita “faux italic”.
-          </p>
-        </div>
-      </div>
-    </section>
+        <section id="testimonials" className="scroll-mt-24 py-20 font-gotham">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-semibold">Testimonios</h2>
+            <blockquote className="mt-4 text-white/80">
+              “Resultados reales, acompañamiento cercano.”
+            </blockquote>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }
