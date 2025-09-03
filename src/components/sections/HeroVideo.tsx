@@ -84,6 +84,8 @@ export default function HeroVideo({
         >
           <m.a
             href={copy.cta.href}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label={copy.cta.ariaLabel ?? copy.cta.label}
             variants={fadeUp}
             whileHover={{ scale: 1.02 }}

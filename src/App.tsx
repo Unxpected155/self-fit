@@ -11,7 +11,7 @@ export default function App() {
     title: "Self Fit",
     subtitle:
       "The most complete masterclass for slicing off fat, gaining perfect muscle size & getting into the shape of your dreams.",
-    cta: { label: "LET’S GO!", href: "#story" },
+    cta: { label: "LET’S GO!", href: "https://wa.me/50685466376?text=COACH!" },
   } as const;
 
   const heroMedia = {
