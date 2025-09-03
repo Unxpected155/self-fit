@@ -1,66 +1,123 @@
+import Navbar from "./components/sections/Navbar";
+import HeroVideo from "./components/sections/HeroVideo";
+import StorySection from "./components/sections/StorySection";
+import Testimonials from "./components/sections/Testimonials";
+import type { Stat } from "./components/ui/StatsStrip";
+import "./index.css";
+
 export default function App() {
-  const pangram =
-    "El veloz murciélago hindú comía feliz cardillo y kiwi. 0123456789";
+  // === Hero (program) ===
+  const heroCopy = {
+    title: "Self Fit",
+    subtitle:
+      "The most complete masterclass for slicing off fat, gaining perfect muscle size & getting into the shape of your dreams.",
+    cta: { label: "LET’S GO!", href: "#story" },
+  } as const;
+
+  const heroMedia = {
+    // Recuerda: si están en /public, la ruta es absoluta desde raíz
+    src: "/videos/Vsl_Video.mp4",
+    poster: "/photos/SelfFit_Logo_Blanco.webp",
+    alt: "Coach training with dumbbells in cinematic light",
+  } as const;
+
+  const stats: ReadonlyArray<Stat> = [
+    { value: "4+", top: "MONTHS", bottom: "OF WORKOUTS" },
+    { value: "40+", top: "VIDEO", bottom: "LESSONS" },
+    { value: "4", top: "NUTRITION", bottom: "PROTOCOLS" },
+  ];
+
+  // === Story (breakdown) ===
+  const story = {
+    image: {
+      src: "/photos/Coach_Before_After.webp",
+      alt: "Your coach transformation",
+    },
+    title: "Welcome to the SelfFit Masterclass",
+    paragraphs: [
+      "This is a practical, effective system designed for busy professionals who want visible results without restrictive diets or endless workouts.",
+      "You'll follow a proven structure: simple nutrition you can actually stick to, efficient 3x/week training, and weekly accountability.",
+      "Whether you're cutting fat, building lean muscle, or both — we’ll tailor the plan to your goals and schedule.",
+      "The result: a cinematic physique with habits you can sustain long after the program.",
+    ] as const,
+    cta: { label: "See Results", href: "#testimonials" },
+  } as const;
+
+  // === Testimonials ===
+  const testimonials = [
+    {
+      src: "/photos/testimonials/Testimonial1.webp",
+      alt: "Client transformation 1",
+    },
+    {
+      src: "/photos/testimonials/Testimonial2.webp",
+      alt: "Client transformation 2",
+    },
+    {
+      src: "/photos/testimonials/Testimonial3.webp",
+      alt: "Client transformation 3",
+    },
+    {
+      src: "/photos/testimonials/Testimonial4.webp",
+      alt: "Client transformation 4",
+    },
+    {
+      src: "/photos/testimonials/Testimonial5.webp",
+      alt: "Client transformation 5",
+    },
+    {
+      src: "/photos/testimonials/Testimonial6.webp",
+      alt: "Client transformation 6",
+    },
+    {
+      src: "/photos/testimonials/Testimonial7.webp",
+      alt: "Client transformation 7",
+    },
+    {
+      src: "/photos/testimonials/Testimonial8.webp",
+      alt: "Client transformation 8",
+    },
+    {
+      src: "/photos/testimonials/Testimonial9.webp",
+      alt: "Client transformation 9",
+    },
+    {
+      src: "/photos/testimonials/Testimonial10.webp",
+      alt: "Client transformation 10",
+    },
+    {
+      src: "/photos/testimonials/Testimonial11.webp",
+      alt: "Client transformation 11",
+    },
+    {
+      src: "/photos/testimonials/Testimonial12.webp",
+      alt: "Client transformation 12",
+    },
+  ] as const;
+
   return (
-    <section className="max-w-5xl mx-auto p-6 space-y-10">
-      {/* Avenir Next LT Pro */}
-      <div className="space-y-3">
-        <h2 className="text-xl font-medium">
-          Avenir Next LT Pro — <code className="text-white/70">font-sans</code>
-        </h2>
-        <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-1 font-sans">
-          <p className="text-sm text-white/70">Light 300</p>
-          <p className="font-light">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Normal 400</p>
-          <p className="font-normal">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Medium 500</p>
-          <p className="font-medium">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">ExtraBold 800</p>
-          <p className="font-extrabold">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Black 900</p>
-          <p className="font-black">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">
-            Italic (usa las Oblique reales)
-          </p>
-          <p className="italic font-normal">{pangram}</p>
-        </div>
-      </div>
-
-      {/* Gotham */}
-      <div className="space-y-3">
-        <h2 className="text-xl font-medium">
-          Gotham — <code className="text-white/70">font-gotham</code>
-        </h2>
-        <div className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-1 font-gotham">
-          <p className="text-sm text-white/70">Thin 100</p>
-          <p className="font-thin">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Light 300</p>
-          <p className="font-light">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Book 400</p>
-          <p className="font-normal">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Medium 500</p>
-          <p className="font-medium">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Bold 700</p>
-          <p className="font-bold">{pangram}</p>
-
-          <p className="mt-3 text-sm text-white/70">Black/Ultra 900</p>
-          <p className="font-black">{pangram}</p>
-
-          <p className="mt-3 text-sm text-amber-400/80">
-            *No uses <code>italic</code> en Gotham si no tenés las cursivas;
-            evita “faux italic”.
-          </p>
-        </div>
-      </div>
-    </section>
+    <div id="top">
+      <Navbar />
+      <main id="main">
+        <HeroVideo
+          id="program"
+          copy={heroCopy}
+          media={heroMedia}
+          stats={stats}
+        />
+        <StorySection
+          id="story"
+          image={story.image}
+          title={story.title}
+          paragraphs={story.paragraphs}
+          cta={story.cta}
+        />
+        <Testimonials
+          id="testimonials"
+          title="Real Clients. Real Results."
+          items={testimonials}
+        />
+      </main>
+    </div>
   );
 }
