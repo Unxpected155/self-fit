@@ -36,7 +36,7 @@ export default function App() {
     title: "Welcome to the SelfFit Masterclass",
     paragraphs: [
       "This is a practical, effective system designed for busy professionals who want visible results without restrictive diets or endless workouts.",
-      "You'll follow a proven structure: simple nutrition you can actually stick to, efficient 3x/week training, and weekly accountability.",
+      "You'll follow a proven structure: simple nutrition you can actually stick to, efficient training, and weekly accountability.",
       "Whether you're cutting fat, building lean muscle, or both — we’ll tailor the plan to your goals and schedule.",
       "The result: a cinematic physique with habits you can sustain long after the program.",
     ] as const,
