@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 export default function useWindowSize() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [windowSize, setWindowSize] = useState({
     width: 0,
     height: 0,
