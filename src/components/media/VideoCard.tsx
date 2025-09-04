@@ -16,6 +16,7 @@ type Props = {
   controls?: boolean;
   /** Preload (default: "metadata") */
   preload?: "none" | "metadata" | "auto";
+  playsInline?: boolean;
 };
 
 export default function VideoCard({
@@ -28,6 +29,7 @@ export default function VideoCard({
   loop = false,
   controls = true,
   preload = "metadata",
+  playsInline = true,
 }: Props) {
   return (
     <m.div
@@ -44,7 +46,7 @@ export default function VideoCard({
         // Autoplay compatible con políticas de navegador:
         autoPlay={autoPlay}
         muted={muted}
-        playsInline
+        playsInline={playsInline}
         loop={loop}
         controls={controls}
         preload={preload}

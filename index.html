@@ -3,6 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/icon/favicon.ico" />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link
+      rel="preload"
+      href="/fonts/avenir/AvenirLTPro-Heavy.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- (Opcional) Preload de un segundo peso si realmente aparece above-the-fold -->
+    <!-- <link rel="preload" href="/fonts/avenir/AvenirLTPro-Roman.woff2" as="font" type="font/woff2" crossorigin> -->
+
+    <!-- Preload del poster del hero (coincidir con tu poster real) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/photos/SelfFit_Logo_Blanco.webp"
+      imagesrcset="/photos/hero-640.webp 640w, /photos/hero-1280.webp 1280w, /photos/hero-1920.webp 1920w"
+      imagesizes="100vw"
+    />
+    <meta name="theme-color" content="#000000" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frank Fitness</title>
   </head>

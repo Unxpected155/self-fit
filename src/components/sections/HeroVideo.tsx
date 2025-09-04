@@ -1,20 +1,25 @@
 // src/sections/HeroVideo.tsx
 import { ArrowRight } from "lucide-react";
 import { motion as m, type Variants } from "framer-motion";
+import { useEffect, useState, type JSX } from "react";
 import VideoCard from "../media/VideoCard";
+// Si no quieres mostrar stats aquí, puedes quitar la importación y el bloque de <StatsStrip />
 import StatsStrip from "../ui/StatsStrip";
 
 type CTA = { label: string; href: string; ariaLabel?: string };
 
-// Nuevo esquema de copy
 type Copy = {
   preheadline?: string; // pequeño, en color primario
-  headline: string; // grande, el principal (con itálicas)
+  headline: string; // grande, principal
   subheadline?: string; // soporte debajo
   cta: CTA;
 };
 
-type Media = { src: string; poster?: string; alt?: string };
+type Media = {
+  src: string; // ruta a tu MP4 (self-hosted)
+  poster?: string; // WebP/JPG del primer frame
+  alt?: string; // texto alternativo
+};
 
 type Props = {
   id?: string;
@@ -22,7 +27,7 @@ type Props = {
   media: Media;
 };
 
-// Variants
+// Variants de animación
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 12 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
@@ -35,11 +40,43 @@ const stagger: Variants = {
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.12 } },
 };
 
-export default function HeroVideo({ id = "program", copy, media }: Props) {
+export default function HeroVideo({
+  id = "program",
+  copy,
+  media,
+}: Props): JSX.Element {
+  const [showVideo, setShowVideo] = useState<boolean>(false);
+
+  useEffect(() => {
+    type RIC = (
+      cb: (d: { didTimeout: boolean; timeRemaining(): number }) => void,
+      options?: { timeout: number }
+    ) => number;
+
+    const onLoad = () => {
+      const ric: RIC | undefined = (
+        window as Window & { requestIdleCallback?: RIC }
+      ).requestIdleCallback;
+      if (typeof ric === "function") {
+        ric(() => setShowVideo(true));
+      } else {
+        // Fallback si el navegador no soporta requestIdleCallback
+        setTimeout(() => setShowVideo(true), 600);
+      }
+    };
+
+    if (document.readyState === "complete") onLoad();
+    else window.addEventListener("load", onLoad, { once: true });
+    return () => window.removeEventListener("load", onLoad);
+  }, []);
+
+  const posterSrc = media.poster ?? "/photos/hero-1280.webp";
+  const altText = media.alt ?? "SelfFit hero";
+
   return (
     <section id={id} aria-label="Hero" className="scroll-mt-24 py-12 md:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        {/* Header */}
+        {/* Encabezado */}
         <m.header
           className="text-center mb-6 md:mb-8"
           initial="hidden"
@@ -50,7 +87,7 @@ export default function HeroVideo({ id = "program", copy, media }: Props) {
           {copy.preheadline && (
             <m.p
               className="italic text-primary font-semibold uppercase tracking-wide
-                         text-[clamp(.8rem,.7rem+.35vw,1rem)]"
+                         text-[clamp(.8rem,.7rem+.35vw,1rem)] text-"
               variants={fadeIn}
             >
               {copy.preheadline}
@@ -75,24 +112,43 @@ export default function HeroVideo({ id = "program", copy, media }: Props) {
           )}
         </m.header>
 
-        {/* Video */}
+        {/* Media: primero imagen (LCP), luego video diferido */}
         <m.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
           variants={fadeUp}
         >
-          <VideoCard
-            src={media.src}
-            poster={media.poster}
-            alt={media.alt}
-            autoPlay
-            muted
-            loop={false} // ponlo en true si quieres repetir
-            controls={true} // o false si no quieres controles visibles
-            preload="metadata"
-            className="mb-6 md:mb-8"
-          />
+          <div className="relative mb-6 md:mb-8 rounded-2xl overflow-hidden aspect-[9/16] md:aspect-[16/9]">
+            {/* LCP: imagen prioritaria */}
+            {!showVideo && (
+              <img
+                src={posterSrc}
+                // si tienes distintas resoluciones del poster, añade srcSet/sizes:
+                // srcSet="/photos/hero-640.webp 640w, /photos/hero-1280.webp 1280w, /photos/hero-1920.webp 1920w"
+                sizes="100vw"
+                alt={altText}
+                fetchPriority="high"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            )}
+
+            {/* Video: se monta después del idle */}
+            {showVideo && (
+              <VideoCard
+                src={media.src}
+                poster={posterSrc}
+                alt={altText}
+                autoPlay
+                muted
+                playsInline
+                loop
+                preload="metadata"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            )}
+          </div>
         </m.div>
 
         {/* CTA */}
@@ -124,7 +180,7 @@ export default function HeroVideo({ id = "program", copy, media }: Props) {
           </m.a>
         </m.div>
 
-        {/* Stats */}
+        {/* Stats (opcional) */}
         <m.div
           initial="hidden"
           whileInView="show"
