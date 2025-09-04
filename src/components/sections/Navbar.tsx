@@ -1,3 +1,4 @@
+// src/sections/Navbar.tsx
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion as m, AnimatePresence, type Variants } from "framer-motion";
@@ -5,12 +6,13 @@ import { useActiveSection } from "../../hooks/useActiveSection";
 import useWindowSize from "../../hooks/useWindowSize";
 
 const LINKS = [
-  { id: "program", label: "Program" },
-  { id: "story", label: "Breakdown" },
+  { id: "intro", label: "Intro" },
+  { id: "myStory", label: "My Story" },
+  { id: "caseStudies", label: "Case Studies" },
   { id: "testimonials", label: "Testimonials" },
 ] as const;
 
-// Variants
+// Animations
 const headerIn: Variants = {
   hidden: { opacity: 0, y: -10 },
   show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
@@ -43,8 +45,13 @@ const mobileMenu: Variants = {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const active = useActiveSection(LINKS.map((l) => l.id));
   const { width } = useWindowSize();
+
+  // Hook de sección activa (con click handler para marcar al instante)
+  const { active, handleNavClick } = useActiveSection(
+    LINKS.map((l) => l.id),
+    { offsetTop: 96 }
+  );
 
   // cerrar menú al pasar a desktop
   useEffect(() => {
@@ -84,14 +91,16 @@ export default function Navbar() {
         <div className="h-14 sm:h-16 md:h-18 lg:h-20 flex items-center justify-between">
           {/* Brand */}
           <m.a
-            href="#top"
+            href="#intro"
+            onClick={handleNavClick("intro")}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="font-bold tracking-tight text-base sm:text-lg md:text-xl lg:text-2xl"
+            aria-label="Go to intro"
           >
             <img
               src="/photos/SelfFit_Logo_Blanco.webp"
-              alt="Logo"
+              alt="SelfFit logo"
               className="size-20 md:size-28 lg:size-32 object-contain"
             />
           </m.a>
@@ -108,9 +117,13 @@ export default function Navbar() {
                 <m.li key={l.id} variants={itemIn}>
                   <m.a
                     href={`#${l.id}`}
+                    onClick={handleNavClick(l.id)}
                     whileHover={{ y: -1 }}
+                    aria-current={active === l.id ? "page" : undefined}
                     className={`transition-colors underline-offset-4 hover:text-primary ${
-                      active === l.id ? "text-primary" : "text-white"
+                      active === l.id
+                        ? "font-bold text-white"
+                        : "font-normal text-white/80"
                     } text-[clamp(.95rem,.75rem+.35vw,1.05rem)]`}
                   >
                     {l.label}
@@ -128,10 +141,10 @@ export default function Navbar() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center rounded-xl px-5 py-2.5 bg-primary text-black font-medium hover:opacity-90
+              className="inline-flex items-center rounded-xl px-5 py-2.5 bg-primary text-white font-medium hover:opacity-90
                          text-[clamp(.95rem,.8rem+.3vw,1.05rem)]"
             >
-              ¡Get fit!
+              Schedule a call
             </m.a>
           </div>
 
@@ -148,7 +161,7 @@ export default function Navbar() {
           </m.button>
         </div>
 
-        {/* Menú móvil (AnimatePresence) */}
+        {/* Menú móvil */}
         <AnimatePresence>
           {open && (
             <m.nav
@@ -166,10 +179,14 @@ export default function Navbar() {
                   <li key={l.id}>
                     <m.a
                       href={`#${l.id}`}
+                      onClick={() => {
+                        handleNavClick(l.id)();
+                        setOpen(false);
+                      }}
                       whileTap={{ scale: 0.985 }}
-                      onClick={() => setOpen(false)}
+                      aria-current={active === l.id ? "page" : undefined}
                       className={`block rounded px-2 py-2 hover:text-primary ${
-                        active === l.id ? "text-primary" : "text-white"
+                        active === l.id ? "text-white font-bold" : "text-white"
                       }`}
                     >
                       {l.label}
@@ -183,9 +200,9 @@ export default function Navbar() {
                     rel="noopener noreferrer"
                     whileTap={{ scale: 0.985 }}
                     onClick={() => setOpen(false)}
-                    className="inline-flex w-full justify-center rounded-xl px-4 py-2.5 bg-primary text-black font-medium hover:opacity-90"
+                    className="inline-flex w-full justify-center rounded-xl px-4 py-2.5 bg-primary text-white font-medium hover:opacity-90"
                   >
-                    ¡Get fit!
+                    Schedule a call
                   </m.a>
                 </li>
               </ul>

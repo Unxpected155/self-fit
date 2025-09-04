@@ -1,61 +1,122 @@
-export type Stat = {
-  value: string;
-  top: string;
-  bottom: string;
-  emphasizePlus?: boolean;
+// components/StatsStrip.tsx
+import { useEffect, useRef } from "react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useReducedMotion,
+} from "framer-motion";
+
+type Stat = {
+  value: number;
+  suffix?: string;
+  titleLine1: string;
+  titleLine2?: string;
+  duration?: number;
 };
 
-type Props = {
-  stats: ReadonlyArray<Stat>;
-  className?: string;
-};
+const stats: Stat[] = [
+  {
+    value: 20,
+    suffix: "+",
+    titleLine1: "YEARS",
+    titleLine2: "OF EXPERTISE",
+    duration: 1.2,
+  },
+  {
+    value: 40,
+    suffix: "+",
+    titleLine1: "HAPPY",
+    titleLine2: "CLIENTS",
+    duration: 1.2,
+  },
+  { value: 4, titleLine1: "AREAS", titleLine2: "OF FOCUS", duration: 1.2 },
+];
 
-export default function StatsStrip({ stats, className }: Props) {
+function CountUp({
+  value,
+  suffix = "",
+  duration = 1.2,
+}: {
+  value: number;
+  suffix?: string;
+  duration?: number;
+}) {
+  const prefersReduced = useReducedMotion();
+  const ref = useRef<HTMLSpanElement>(null);
+  const mv = useMotionValue(0);
+  const spring = useSpring(mv, { stiffness: 100, damping: 20 });
+
+  useEffect(() => {
+    if (prefersReduced) {
+      if (ref.current)
+        ref.current.textContent = `${Math.round(value)}${suffix}`;
+      return;
+    }
+    const unsub = spring.on("change", (latest) => {
+      if (ref.current)
+        ref.current.textContent = `${Math.floor(latest)}${suffix}`;
+    });
+
+    mv.set(0);
+    const start = performance.now();
+    const tick = (t: number) => {
+      const p = Math.min(1, (t - start) / (duration * 1000));
+      mv.set(value * p);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    const r = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(r);
+      unsub();
+    };
+  }, [value, suffix, duration, mv, spring, prefersReduced]);
+
+  return <span ref={ref} aria-label={`${value}${suffix}`} />;
+}
+
+function StatCard({ stat, delay = 0 }: { stat: Stat; delay?: number }) {
   return (
-    <div
-      className={[
-        "relative overflow-hidden",
-        // fondo oscuro con grid sutil
-        "bg-black/40",
-        className ?? "",
-      ].join(" ")}
-      role="list"
+    <motion.div
+      initial={{ y: -24, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true, amount: 0.6 }}
+      transition={{ duration: 0.6, delay }}
+      className="flex flex-col items-center md:items-start gap-2"
     >
-      <div className="relative grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/12">
-        {stats.map((s, i) => (
-          <div
-            key={i}
-            role="listitem"
-            className="px-6 py-6 sm:px-10 sm:py-8 flex items-center justify-center"
-          >
-            <div className="flex items-baseline gap-4">
-              {/* Número grande en negrita */}
-              <div
-                className="font-extrabold leading-none tracking-tight text-white
-                              text-[clamp(2.25rem,1.4rem+3.2vw,3.5rem)]"
-              >
-                {s.emphasizePlus && s.value.includes("+") ? (
-                  <>
-                    {s.value.replace("+", "")}
-                    <span className="text-primary align-text-top">+</span>
-                  </>
-                ) : (
-                  s.value
-                )}
-              </div>
-
-              {/* Label en dos líneas, MAYÚSCULA */}
-              <div
-                className="uppercase font-semibold leading-tight text-white/80
-                              text-[clamp(.78rem,.68rem+.35vw,.95rem)]"
-              >
-                <div>{s.top}</div>
-                <div>{s.bottom}</div>
-              </div>
-            </div>
-          </div>
-        ))}
+      <div className="text-5xl md:text-6xl font-extrabold leading-none text-center md:text-left">
+        <CountUp
+          value={stat.value}
+          suffix={stat.suffix}
+          duration={stat.duration}
+        />
       </div>
-    </div>
+      <div className="text-sm md:text-xs tracking-wide font-bold uppercase opacity-80 text-center md:text-left">
+        {stat.titleLine1}
+      </div>
+      {stat.titleLine2 && (
+        <div className="text-sm md:text-xs tracking-wide font-bold uppercase opacity-80 text-center md:text-left -mt-1">
+          {stat.titleLine2}
+        </div>
+      )}
+    </motion.div>
+  );
+}
+
+export default function StatsStrip() {
+  const ref = useRef(null);
+
+  return (
+    <section ref={ref} className="w-full bg-black text-white">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:divide-x md:divide-white/10 text-center md:text-left">
+          {stats.map((s, i) => (
+            <div key={i} className={`px-0 md:px-10`}>
+              <StatCard stat={s} delay={i * 0.1} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
