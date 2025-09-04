@@ -1,5 +1,3 @@
-// src/media/VideoCard.tsx
-import React from "react";
 import { motion as m } from "framer-motion";
 
 type Props = {

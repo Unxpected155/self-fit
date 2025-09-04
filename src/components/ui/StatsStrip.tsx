@@ -2,7 +2,6 @@
 import { useEffect, useRef } from "react";
 import {
   motion,
-  useInView,
   useMotionValue,
   useSpring,
   useReducedMotion,
@@ -106,8 +105,6 @@ function StatCard({ stat, delay = 0 }: { stat: Stat; delay?: number }) {
 
 export default function StatsStrip() {
   const ref = useRef(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const inView = useInView(ref, { amount: 0.4, once: true });
 
   return (
     <section ref={ref} className="w-full bg-black text-white">
