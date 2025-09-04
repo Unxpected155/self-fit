@@ -1,112 +1,82 @@
+/* Tailwind (v4) */
 @import "tailwindcss";
 
+/* =========================
+   Fuentes self-host (swap)
+   ========================= */
 @font-face {
-  font-family: "Avenir Next LT Pro";
-  src: url("/fonts/avenir/AvenirLTPro-Light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Avenir Next LT Pro";
-  src: url("/fonts/avenir/AvenirLTPro-Roman.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Avenir Next LT Pro";
-  src: url("/fonts/avenir/AvenirLTPro-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Avenir Next LT Pro";
+  font-family: "AvenirLTPro";
   src: url("/fonts/avenir/AvenirLTPro-Heavy.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Avenir Next LT Pro";
-  src: url("/fonts/avenir/AvenirLTPro-Black.woff2") format("woff2");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-/* Si tenés cursivas: añadí las Oblique (font-style: italic) */
-
-/* Gotham */
-@font-face {
-  font-family: "Gotham";
-  src: url("/fonts/gotham/Gotham-Thin.woff2") format("woff2");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gotham";
-  src: url("/fonts/gotham/Gotham-Light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gotham";
-  src: url("/fonts/gotham/Gotham-Book.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gotham";
-  src: url("/fonts/gotham/Gotham-Medium.woff2") format("woff2");
+  font-family: "AvenirLTPro";
+  src: url("/fonts/avenir/AvenirLTPro-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Gotham";
-  src: url("/fonts/gotham/Gotham-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Gotham";
-  src: url("/fonts/gotham/Gotham-Black.woff2") format("woff2");
-  font-weight: 900;
+  font-family: "AvenirLTPro";
+  src: url("/fonts/avenir/AvenirLTPro-Roman.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-/* ====== Tokens Tailwind v4 ====== */
 @theme inline {
-  /* Colores */
   --color-primary: #da511f; /* naranja */
   --color-white: #ffffff;
   --color-black: #000000;
   --color-gray-600: #585858; /* Light Gray */
   --color-gray-900: #272727; /* Dark Gray */
-
-  /* Tipografías */
-  --font-sans: "Avenir Next LT Pro", ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji",
-    "Segoe UI Emoji";
-  --font-gotham: "Gotham", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial;
 }
 
-/* Utilidad para Gotham donde la necesites (p.ej. Testimonios) */
-.font-gotham {
-  font-family: var(--font-gotham);
+/* =========================
+   Resets útiles de medios
+   ========================= */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-/* ====== Base ====== */
-html {
+/* Evitar síntesis que puede provocar relayouts en algunos navegadores */
+:root {
+  font-synthesis-weight: none;
+  font-synthesis-style: none;
+}
+
+/* Suavizar scroll por defecto (desactivado si reduced motion) */
+html:focus-within {
   scroll-behavior: smooth;
 }
+
+/* Respeto a usuarios con reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Tipografía base (ajusta a tu gusto) */
 body {
-  @apply font-sans bg-black text-white antialiased;
+  font-family: "AvenirLTPro", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #000; /* según tu diseño */
+  color: #fff;
 }

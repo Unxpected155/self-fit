@@ -1,12 +1,13 @@
 // src/sections/CaseStudies.tsx
+import { Suspense, lazy } from "react";
 import { motion as m, type Variants } from "framer-motion";
-import YouTubeEmbed from "../media/YouTubeEmbed";
 import type { CaseStudyVideo } from "../../types/case-studies";
+import { useNearViewport } from "../../hooks/useNearViewport"; // ajusta la ruta si tu hook está en otro lugar
 
 type Layout = "auto" | "stacked";
 
 type Props = {
-  id: string;
+  id?: string;
   title?: string;
   videos: readonly CaseStudyVideo[];
   layout?: Layout;
@@ -15,6 +16,8 @@ type Props = {
 
 export type CaseStudyItem = Readonly<{ title: string; href: string }>;
 
+const YouTubeEmbed = lazy(() => import("../media/YouTubeEmbed"));
+
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 10 },
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
@@ -22,6 +25,29 @@ const fadeUp: Variants = {
 const stagger: Variants = {
   show: { transition: { staggerChildren: 0.07, delayChildren: 0.08 } },
 };
+
+// Tarjeta que se monta cuando se acerca al viewport
+function VideoTile({ title, href }: { title: string; href: string }) {
+  const { ref, visible } = useNearViewport<HTMLDivElement>("500px");
+
+  return (
+    <m.div ref={ref} variants={fadeUp} className="flex flex-col">
+      {visible ? (
+        <Suspense
+          fallback={
+            <div className="aspect-video w-full rounded-2xl bg-white/5 animate-pulse" />
+          }
+        >
+          <YouTubeEmbed url={href} title={title} autoplay muted />
+        </Suspense>
+      ) : (
+        <div className="aspect-video w-full rounded-2xl bg-white/5" />
+      )}
+
+      <p className="mt-3 text-center text-white/90 font-medium">{title}</p>
+    </m.div>
+  );
+}
 
 export default function CaseStudies({
   id = "caseStudies",
@@ -57,17 +83,11 @@ export default function CaseStudies({
           variants={stagger}
         >
           {videos.map((video, index) => (
-            <m.div key={index} variants={fadeUp} className="flex flex-col">
-              <YouTubeEmbed
-                url={video.href}
-                title={video.title}
-                autoplay
-                muted
-              />
-              <p className="mt-3 text-center text-white/90 font-medium">
-                {video.title}
-              </p>
-            </m.div>
+            <VideoTile
+              key={`${video.title}-${index}`}
+              title={video.title}
+              href={video.href}
+            />
           ))}
         </m.div>
       </div>
