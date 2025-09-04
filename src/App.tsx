@@ -2,32 +2,28 @@ import Navbar from "./components/sections/Navbar";
 import HeroVideo from "./components/sections/HeroVideo";
 import StorySection from "./components/sections/StorySection";
 import Testimonials from "./components/sections/Testimonials";
-import type { Stat } from "./components/ui/StatsStrip";
 import "./index.css";
+import CaseStudies from "./components/sections/CaseStudies";
+import type { CaseStudyVideo } from "./types/case-studies";
 
 export default function App() {
-  // === Hero (program) ===
   const heroCopy = {
-    title: "Self Fit",
-    subtitle:
-      "The most complete masterclass for slicing off fat, gaining perfect muscle size & getting into the shape of your dreams.",
-    cta: { label: "LET’S GO!", href: "https://wa.me/50685466376?text=COACH!" },
+    preheadline: "Engineers and Tech Leaders:",
+    headline: "Unlock Your Energy and Confidence",
+    subheadline:
+      "We help high-performing tech professionals break free from fatigue, burn fat and build lasting health while excelling at work.",
+    cta: {
+      label: "Schedule a call",
+      href: "https://wa.me/50685466376?text=COACH!",
+    },
   } as const;
 
   const heroMedia = {
-    // Recuerda: si están en /public, la ruta es absoluta desde raíz
     src: "/videos/Vsl_Video.mp4",
     poster: "/photos/SelfFit_Logo_Blanco.webp",
     alt: "Coach training with dumbbells in cinematic light",
   } as const;
 
-  const stats: ReadonlyArray<Stat> = [
-    { value: "4+", top: "MONTHS", bottom: "OF WORKOUTS" },
-    { value: "40+", top: "VIDEO", bottom: "LESSONS" },
-    { value: "4", top: "NUTRITION", bottom: "PROTOCOLS" },
-  ];
-
-  // === Story (breakdown) ===
   const story = {
     image: {
       src: "/photos/Coach_Before_After.webp",
@@ -35,82 +31,137 @@ export default function App() {
     },
     title: "Welcome to the SelfFit Masterclass",
     paragraphs: [
-      "This is a practical, effective system designed for busy professionals who want visible results without restrictive diets or endless workouts.",
-      "You'll follow a proven structure: simple nutrition you can actually stick to, efficient training, and weekly accountability.",
-      "Whether you're cutting fat, building lean muscle, or both — we’ll tailor the plan to your goals and schedule.",
-      "The result: a cinematic physique with habits you can sustain long after the program.",
+      "I wasn’t always the coach you see today. As a teen, I spent hours sitting, playing games, and watching others walk around with athletic bodies. I felt insecure, heavily bullied, and one day almost gave up on myself.",
+      "That moment became my turning point. I grabbed two dumbbells and a pillow, and started training in my room.",
+      "What began as survival became passion. Years later, I built SelfFit to help busy tech pros like me, who also feel the same way I once did. To recover health, and find the energy to lead again, from someone who’s been there himself.",
     ] as const,
     cta: { label: "See Results", href: "#testimonials" },
   } as const;
 
-  // === Testimonials ===
+  const caseStudyVideos = [
+    {
+      title: "Tyler",
+      href: "https://youtu.be/rMSuqmMbN2Q?si=D2xZnNQjiwrq_m8S",
+    },
+    {
+      title: "Jesse",
+      href: "https://youtu.be/JZYfdyC9Cyc?si=O0wbFsIWrBCIl0gy",
+    },
+  ] as const satisfies readonly CaseStudyVideo[];
+
   const testimonials = [
     {
-      src: "/photos/testimonials/Testimonial1.webp",
-      alt: "Client transformation 1",
+      src: "/photos/testimonials/Alek.webp",
+      alt: "Alek transformation",
+      name: "Alek",
     },
     {
-      src: "/photos/testimonials/Testimonial2.webp",
-      alt: "Client transformation 2",
+      src: "/photos/testimonials/Andrew.webp",
+      alt: "Andrew transformation",
+      name: "Andrew",
     },
     {
-      src: "/photos/testimonials/Testimonial3.webp",
-      alt: "Client transformation 3",
+      src: "/photos/testimonials/Ari.webp",
+      alt: "Client transformation",
+      name: "Ari",
     },
     {
-      src: "/photos/testimonials/Testimonial4.webp",
-      alt: "Client transformation 4",
+      src: "/photos/testimonials/Daniel.webp",
+      alt: "Daniel transformation",
+      name: "Daniel",
     },
     {
-      src: "/photos/testimonials/Testimonial5.webp",
-      alt: "Client transformation 5",
+      src: "/photos/testimonials/Elliott.webp",
+      alt: "Elliott transformation",
+      name: "Elliott",
     },
     {
-      src: "/photos/testimonials/Testimonial6.webp",
-      alt: "Client transformation 6",
+      src: "/photos/testimonials/Gabriel.webp",
+      alt: "Gabriel transformation",
+      name: "Gabriel",
     },
     {
-      src: "/photos/testimonials/Testimonial7.webp",
-      alt: "Client transformation 7",
+      src: "/photos/testimonials/Hollen.webp",
+      alt: "Hollen transformation",
+      name: "Hollen",
     },
     {
-      src: "/photos/testimonials/Testimonial8.webp",
-      alt: "Client transformation 8",
+      src: "/photos/testimonials/Ignacio.webp",
+      alt: "Ignacio transformation",
+      name: "Ignacio",
     },
     {
-      src: "/photos/testimonials/Testimonial9.webp",
-      alt: "Client transformation 9",
+      src: "/photos/testimonials/JeanPaul.webp",
+      alt: "Jean Paul transformation",
+      name: "Jean Paul",
     },
     {
-      src: "/photos/testimonials/Testimonial10.webp",
-      alt: "Client transformation 10",
+      src: "/photos/testimonials/Logan.webp",
+      alt: "Logan transformation",
+      name: "Logan",
     },
     {
-      src: "/photos/testimonials/Testimonial11.webp",
-      alt: "Client transformation 11",
+      src: "/photos/testimonials/Richard.webp",
+      alt: "Richard transformation",
+      name: "Richard",
     },
     {
-      src: "/photos/testimonials/Testimonial12.webp",
-      alt: "Client transformation 12",
+      src: "/photos/testimonials/Sebastian.webp",
+      alt: "Sebastian transformation",
+      name: "Sebastian",
     },
   ] as const;
 
   return (
     <div id="top">
+      <div
+        className="pointer-events-none absolute inset-0 -z-10
+        [background:
+          radial-gradient(60%_40%_at_50%_-10%,rgba(234,97,40,0.14),transparent_60%),
+          radial-gradient(35%_25%_at_90%_10%,rgba(234,97,40,0.08),transparent_60%),
+          linear-gradient(180deg,#0b0b0b_0%,#070707_55%,#000_100%)
+        ]"
+      />
+
       <Navbar />
+
       <main id="main">
         <HeroVideo
-          id="program"
-          copy={heroCopy}
-          media={heroMedia}
-          stats={stats}
+          id="intro"
+          copy={{
+            preheadline: heroCopy.preheadline,
+            headline: heroCopy.headline,
+            subheadline: heroCopy.subheadline,
+            cta: {
+              label: heroCopy.cta.label,
+              href: heroCopy.cta.href,
+            },
+          }}
+          media={{
+            src: heroMedia.src,
+            poster: heroMedia.poster,
+            alt: heroMedia.alt,
+          }}
         />
         <StorySection
-          id="story"
+          id="myStory"
           image={story.image}
           title={story.title}
           paragraphs={story.paragraphs}
           cta={story.cta}
+        />
+        <CaseStudies
+          id="caseStudies"
+          videos={[
+            {
+              title: caseStudyVideos[0].title,
+              href: caseStudyVideos[0].href,
+            },
+            {
+              title: caseStudyVideos[1].title,
+              href: caseStudyVideos[1].href,
+            },
+          ]}
         />
         <Testimonials
           id="testimonials"

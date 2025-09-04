@@ -73,12 +73,14 @@ export default function StorySection({
 
           {cta && (
             <m.div className="mt-6" variants={fadeUp}>
-              <a
+              <m.a
                 href={cta.href}
-                className="inline-flex items-center rounded-xl px-6 py-3 font-semibold bg-primary text-black hover:opacity-95 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center rounded-xl px-6 py-3 font-semibold bg-primary text-white hover:opacity-95 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 {cta.label}
-              </a>
+              </m.a>
             </m.div>
           )}
         </m.div>

@@ -1,20 +1,28 @@
+// src/sections/HeroVideo.tsx
 import { ArrowRight } from "lucide-react";
 import { motion as m, type Variants } from "framer-motion";
 import VideoCard from "../media/VideoCard";
-import StatsStrip, { type Stat } from "../ui/StatsStrip";
+import StatsStrip from "../ui/StatsStrip";
 
 type CTA = { label: string; href: string; ariaLabel?: string };
-type Copy = { title: string; subtitle?: string; cta: CTA };
+
+// Nuevo esquema de copy
+type Copy = {
+  preheadline?: string; // pequeño, en color primario
+  headline: string; // grande, el principal (con itálicas)
+  subheadline?: string; // soporte debajo
+  cta: CTA;
+};
+
 type Media = { src: string; poster?: string; alt?: string };
 
 type Props = {
   id?: string;
   copy: Copy;
   media: Media;
-  stats: ReadonlyArray<Stat>;
 };
 
-// Variants locales
+// Variants
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 12 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
@@ -27,12 +35,7 @@ const stagger: Variants = {
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.12 } },
 };
 
-export default function HeroVideo({
-  id = "program",
-  copy,
-  media,
-  stats,
-}: Props) {
+export default function HeroVideo({ id = "program", copy, media }: Props) {
   return (
     <section id={id} aria-label="Hero" className="scroll-mt-24 py-12 md:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
@@ -44,18 +47,30 @@ export default function HeroVideo({
           viewport={{ once: true, amount: 0.6 }}
           variants={stagger}
         >
-          <m.h1
-            className="font-extrabold uppercase tracking-tight text-[clamp(1.6rem,1.1rem+2.4vw,2.75rem)]"
-            variants={fadeUp}
-          >
-            {copy.title}
-          </m.h1>
-          {copy.subtitle && (
+          {copy.preheadline && (
             <m.p
-              className="mt-2 text-[clamp(.7rem,1rem+.5vw,1.5rem)] text-primary"
+              className="italic text-primary font-semibold uppercase tracking-wide
+                         text-[clamp(.8rem,.7rem+.35vw,1rem)]"
               variants={fadeIn}
             >
-              {copy.subtitle}
+              {copy.preheadline}
+            </m.p>
+          )}
+
+          <m.h1
+            className="font-extrabold italic tracking-tight
+                       text-[clamp(1.8rem,1.2rem+3vw,3rem)]"
+            variants={fadeUp}
+          >
+            {copy.headline}
+          </m.h1>
+
+          {copy.subheadline && (
+            <m.p
+              className="italic mt-2 text-[clamp(.95rem,.85rem+.45vw,1.25rem)] text-white/80"
+              variants={fadeIn}
+            >
+              {copy.subheadline}
             </m.p>
           )}
         </m.header>
@@ -71,6 +86,11 @@ export default function HeroVideo({
             src={media.src}
             poster={media.poster}
             alt={media.alt}
+            autoPlay
+            muted
+            loop={false} // ponlo en true si quieres repetir
+            controls={true} // o false si no quieres controles visibles
+            preload="metadata"
             className="mb-6 md:mb-8"
           />
         </m.div>
@@ -90,7 +110,11 @@ export default function HeroVideo({
             variants={fadeUp}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.99 }}
-            className="group inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold bg-primary text-black hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black text-[clamp(1rem,.85rem+.4vw,1.125rem)]"
+            className="group inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold
+                       bg-primary text-white hover:opacity-95 focus:outline-none
+                       focus-visible:ring-2 focus-visible:ring-primary
+                       focus-visible:ring-offset-2 focus-visible:ring-offset-black
+                       text-[clamp(1rem,.85rem+.4vw,1.125rem)]"
           >
             {copy.cta.label}
             <ArrowRight
@@ -108,7 +132,7 @@ export default function HeroVideo({
           variants={fadeUp}
           className="mt-6"
         >
-          <StatsStrip stats={stats} />
+          <StatsStrip />
         </m.div>
       </div>
     </section>
