@@ -119,7 +119,10 @@ export default function HeroVideo({
           viewport={{ once: true, amount: 0.5 }}
           variants={fadeUp}
         >
-          <div className="relative mb-6 md:mb-8 rounded-2xl overflow-hidden aspect-[9/16] md:aspect-[16/9]">
+          <div
+            className="relative mb-6 md:mb-8 rounded-2xl overflow-hidden
+    w-full aspect-video max-h-[60vh] sm:max-h-[55vh] md:max-h-none"
+          >
             {/* LCP: imagen prioritaria */}
             {!showVideo && (
               <img
