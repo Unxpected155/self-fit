@@ -53,14 +53,13 @@ svg {
   font-synthesis-style: none;
 }
 
-/* Suavizar scroll por defecto (desactivado si reduced motion) */
-html:focus-within {
+html {
   scroll-behavior: smooth;
+  /* opcional: compensa un navbar fijo */
 }
-
-/* Respeto a usuarios con reduced motion */
+/* Suavizar scroll por defecto (desactivado si reduced motion) */
 @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
+  html {
     scroll-behavior: auto;
   }
   *,
