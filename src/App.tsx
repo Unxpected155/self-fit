@@ -114,18 +114,35 @@ export default function App() {
 
   return (
     <div id="top">
-      <div
-        className="pointer-events-none absolute inset-0 -z-10
-        [background:
-          radial-gradient(60%_40%_at_50%_-10%,rgba(234,97,40,0.14),transparent_60%),
-          radial-gradient(35%_25%_at_90%_10%,rgba(234,97,40,0.08),transparent_60%),
-          linear-gradient(180deg,#0b0b0b_0%,#070707_55%,#000_100%)
-        ]"
-      />
+      <div className="absolute inset-0 -z-10">
+        {/* Imagen de fondo responsiva */}
+        <div
+          className="
+      absolute inset-0
+      bg-[url('/photos/Wave-bg.webp')]
+      bg-no-repeat
+      bg-cover
+      bg-center
+    "
+          aria-hidden
+        />
+        {/* Overlay con gradientes más suaves */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `
+        radial-gradient(60% 40% at 50% -10%, rgba(234,97,40,0.18), transparent 60%),
+        radial-gradient(35% 25% at 90% 10%, rgba(234,97,40,0.12), transparent 60%),
+        linear-gradient(180deg, rgba(11,11,11,0.75) 0%, rgba(7,7,7,0.65) 55%, rgba(0,0,0,0.80) 100%)
+      `,
+          }}
+          aria-hidden
+        />
+      </div>
 
       <Navbar />
 
-      <main id="main">
+      <main id="main" className="">
         <HeroVideo
           id="intro"
           copy={{
