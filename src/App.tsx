@@ -5,6 +5,7 @@ import Testimonials from "./components/sections/Testimonials";
 import "./index.css";
 import CaseStudies from "./components/sections/CaseStudies";
 import type { CaseStudyVideo } from "./types/case-studies";
+import FAQ from "./components/sections/FAQ";
 
 export default function App() {
   const heroCopy = {
@@ -185,6 +186,7 @@ export default function App() {
           title="Real Clients. Real Results."
           items={testimonials}
         />
+        <FAQ />
       </main>
     </div>
   );
