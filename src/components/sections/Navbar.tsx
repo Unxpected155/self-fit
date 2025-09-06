@@ -8,8 +8,9 @@ import useWindowSize from "../../hooks/useWindowSize";
 const LINKS = [
   { id: "intro", label: "Intro" },
   { id: "myStory", label: "My Story" },
-  { id: "caseStudies", label: "Case Studies" },
-  { id: "testimonials", label: "Testimonials" },
+  { id: "protocols", label: "Our Protocols" },
+  { id: "successStories", label: "Success Stories" },
+  { id: "faq", label: "FAQ" },
 ] as const;
 
 // Animations
@@ -72,7 +73,7 @@ export default function Navbar() {
       animate="show"
       variants={headerIn}
       className={`sticky top-0 z-50 backdrop-blur border-b border-white/10 ${
-        open ? "h-80" : "h-14 sm:h-20 md:h-18 lg:h-20"
+        open ? "h-auto" : "h-14 sm:h-20 md:h-18 lg:h-20"
       } transition-[height] duration-200 ${
         scrolled
           ? "bg-black/70 shadow-[0_1px_0_rgba(255,255,255,.08)]"
@@ -136,7 +137,7 @@ export default function Navbar() {
           {/* CTA desktop */}
           <div className="hidden md:block">
             <m.a
-              href="https://wa.me/50685466376?text=COACH!"
+              href="https://calendly.com/coachfrankfit/free-consultation-call"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
@@ -172,7 +173,7 @@ export default function Navbar() {
               animate="show"
               exit="exit"
               variants={mobileMenu}
-              className="md:hidden origin-top overflow-hidden"
+              className="md:hidden origin-top overflow-hidden max-h-[calc(100dvh-56px)] sm:max-h-[calc(100dvh-64px)] overflow-y-auto rounded-b-2xl"
             >
               <ul className="py-2 pb-4 space-y-1 text-base">
                 {LINKS.map((l) => (
@@ -195,7 +196,7 @@ export default function Navbar() {
                 ))}
                 <li className="pt-1">
                   <m.a
-                    href="https://wa.me/50685466376?text=COACH!"
+                    href="https://calendly.com/coachfrankfit/free-consultation-call"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileTap={{ scale: 0.985 }}

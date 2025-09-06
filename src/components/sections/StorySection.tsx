@@ -32,7 +32,7 @@ export default function StorySection({
   cta,
 }: Props) {
   return (
-    <section id={id} className="scroll-mt-24 py-16 md:py-20">
+    <section id={id} className="scroll-mt-24 py-16 md:py-20 section-anchor">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
         {/* Imagen */}
         <m.figure
