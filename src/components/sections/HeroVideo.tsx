@@ -74,7 +74,11 @@ export default function HeroVideo({
   const altText = media.alt ?? "SelfFit hero";
 
   return (
-    <section id={id} aria-label="Hero" className="scroll-mt-24 py-12 md:py-16">
+    <section
+      id={id}
+      aria-label="Hero"
+      className="scroll-mt-24 py-12 md:py-16 section-anchor"
+    >
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Encabezado */}
         <m.header
@@ -87,7 +91,7 @@ export default function HeroVideo({
           {copy.preheadline && (
             <m.p
               className="italic text-primary font-semibold uppercase tracking-wide
-                         text-[clamp(.8rem,.7rem+.35vw,1rem)] text-"
+                         text-[clamp(1rem,.9rem+.35vw,1.2rem)]"
               variants={fadeIn}
             >
               {copy.preheadline}
@@ -104,7 +108,7 @@ export default function HeroVideo({
 
           {copy.subheadline && (
             <m.p
-              className="italic mt-2 text-[clamp(.95rem,.85rem+.45vw,1.25rem)] text-white/80"
+              className="italic mt-2 text-[clamp(.95rem,.85rem+.45vw,1.25rem)] text-white/80 whitespace-pre-line"
               variants={fadeIn}
             >
               {copy.subheadline}
@@ -121,7 +125,9 @@ export default function HeroVideo({
         >
           <div
             className="relative mb-6 md:mb-8 rounded-2xl overflow-hidden
-    w-full aspect-video max-h-[60vh] sm:max-h-[55vh] md:max-h-none"
+  w-full sm:w-11/12 md:w-4/5 lg:w-3/5
+  mx-auto aspect-video
+  max-h-[50vh]"
           >
             {/* LCP: imagen prioritaria */}
             {!showVideo && (
@@ -141,7 +147,6 @@ export default function HeroVideo({
             {showVideo && (
               <VideoCard
                 src={media.src}
-                poster={posterSrc}
                 alt={altText}
                 autoPlay
                 muted

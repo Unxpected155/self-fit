@@ -49,9 +49,9 @@ function VideoTile({ title, href }: { title: string; href: string }) {
   );
 }
 
-export default function CaseStudies({
+export default function SuccessStories({
   id = "caseStudies",
-  title = "Case Studies",
+  title = "Success Stories",
   videos,
   layout = "auto",
   minCardPx = 320,
@@ -62,7 +62,19 @@ export default function CaseStudies({
       : undefined;
 
   return (
-    <section id={id} className="scroll-mt-24 py-16 md:py-20 bg-black/40">
+    <section
+      id={id}
+      className="scroll-mt-24 py-16 md:py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: `
+          radial-gradient(120% 80% at 50% 0%, rgba(234,97,40,0.06) 0%, transparent 70%),
+          linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 60%, #070707 100%)
+        `,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <m.h2
           className="text-center font-extrabold uppercase tracking-tight text-[clamp(1.4rem,1rem+2vw,2.2rem)] mb-10"

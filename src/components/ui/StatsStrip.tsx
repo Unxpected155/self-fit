@@ -26,11 +26,11 @@ const stats: Stat[] = [
   {
     value: 40,
     suffix: "+",
-    titleLine1: "HAPPY",
-    titleLine2: "CLIENTS",
+    titleLine1: "LIFES",
+    titleLine2: "TRANSFORMED",
     duration: 1.2,
   },
-  { value: 4, titleLine1: "AREAS", titleLine2: "OF FOCUS", duration: 1.2 },
+  { value: 4, titleLine1: "CORE", titleLine2: "PILLARDS", duration: 1.2 },
 ];
 
 function CountUp({
@@ -104,17 +104,57 @@ function StatCard({ stat, delay = 0 }: { stat: Stat; delay?: number }) {
 }
 
 export default function StatsStrip() {
-  const ref = useRef(null);
-
   return (
-    <section ref={ref} className="w-full bg-black text-white">
-      <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:divide-x md:divide-white/10 text-center md:text-left">
-          {stats.map((s, i) => (
-            <div key={i} className={`px-0 md:px-10`}>
-              <StatCard stat={s} delay={i * 0.1} />
+    <section className="w-full">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="relative overflow-hidden rounded-[2rem] bg-black">
+          {/* Canvas inset: fondo + grid + glow, con FADE en los bordes */}
+          <div
+            className="absolute inset-2 sm:inset-3 rounded-[inherit]"
+            style={{
+              backgroundImage: `
+                /* Grid */
+                repeating-linear-gradient(to right, rgba(255,255,255,0.17) 0 .1px, transparent 1px 40px),
+                repeating-linear-gradient(to bottom, rgba(255,255,255,0.10) 0 .1px, transparent 1px 40px),
+                /* Halo naranja largo y suave */
+                radial-gradient(120% 58% at 50% 50%, rgba(234,97,40,0.20) 0%, rgba(234,97,40,0.15) 32%, transparent 72%),
+                /* Base negra con ligera transición */
+                linear-gradient(180deg, #000 0%, #000 60%,#000 100%)
+              `,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+
+              /* FADE en las orillas para que el patrón no “toque” el borde redondeado */
+              WebkitMaskImage:
+                "radial-gradient(120% 85% at 50% 50%, #000 58%, transparent 100%)",
+              maskImage:
+                "radial-gradient(120% 85% at 50% 50%, #000 58%, transparent 100%)",
+
+              /* Sombra interna sutil para fundir aún más con el marco negro */
+              boxShadow: "inset 0 0 40px rgba(0,0,0,0.35)",
+            }}
+          />
+
+          {/* Vignette global MUY sutil encima del canvas */}
+          <div
+            className="absolute inset-2 sm:inset-3 rounded-[inherit] pointer-events-none"
+            style={{
+              backgroundImage:
+                "radial-gradient(130% 100% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%)",
+            }}
+          />
+
+          {/* Contenido */}
+          <div className="relative z-10 py-8 sm:py-10 lg:py-12">
+            <div className="flex flex-row justify-center items-stretch gap-4 sm:gap-6 lg:gap-16 text-center">
+              {stats.map((s, i) => (
+                <div key={i} className="px-2 sm:px-4 lg:px-10">
+                  <StatCard stat={s} delay={i * 0.08} />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
