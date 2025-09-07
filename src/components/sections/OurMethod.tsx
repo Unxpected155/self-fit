@@ -28,12 +28,12 @@ const cards = [
   },
 ];
 
-export default function OurProtocols() {
+export default function OurMethod() {
   return (
     <section
-      id="protocols"
+      id="method"
       className="relative py-24 md:py-28 section-anchor"
-      aria-label="Our Protocols"
+      aria-label="Our Method"
     >
       {/* Fondo: gradiente + patrón sutil */}
       <div

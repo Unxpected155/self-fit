@@ -30,7 +30,7 @@ export default function Testimonials({
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <m.h2
-          className="text-center font-extrabold uppercase tracking-tight text-[clamp(1.3rem,1rem+1.6vw,2rem)] mb-10"
+          className="text-center font-extrabold uppercase tracking-tight text-[clamp(1.3rem,1rem+1.6vw,2rem)]"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
@@ -38,6 +38,17 @@ export default function Testimonials({
         >
           {title}
         </m.h2>
+
+        {/* 👇 Subheadline */}
+        <m.p
+          className="mt-2 mb-10 text-center text-white/70 text-[clamp(.95rem,.85rem+.45vw,1.25rem)]"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={fadeUp}
+        >
+          In just the first three months working with us.
+        </m.p>
 
         <m.div
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6"

@@ -1,7 +1,7 @@
 // src/sections/HeroVideo.tsx
 import { ArrowRight } from "lucide-react";
 import { motion as m, type Variants } from "framer-motion";
-import { useEffect, useState, type JSX } from "react";
+import { useEffect, useState, type JSX, type ReactNode } from "react";
 import VideoCard from "../media/VideoCard";
 // Si no quieres mostrar stats aquí, puedes quitar la importación y el bloque de <StatsStrip />
 import StatsStrip from "../ui/StatsStrip";
@@ -11,7 +11,7 @@ type CTA = { label: string; href: string; ariaLabel?: string };
 type Copy = {
   preheadline?: string; // pequeño, en color primario
   headline: string; // grande, principal
-  subheadline?: string; // soporte debajo
+  subheadline?: ReactNode; // soporte debajo
   cta: CTA;
 };
 
