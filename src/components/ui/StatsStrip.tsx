@@ -26,11 +26,11 @@ const stats: Stat[] = [
   {
     value: 40,
     suffix: "+",
-    titleLine1: "LIFES",
+    titleLine1: "LIVES",
     titleLine2: "TRANSFORMED",
     duration: 1.2,
   },
-  { value: 4, titleLine1: "CORE", titleLine2: "PILLARDS", duration: 1.2 },
+  { value: 4, titleLine1: "CORE", titleLine2: "PILLARS", duration: 1.2 },
 ];
 
 function CountUp({

@@ -33,10 +33,10 @@ export default function StorySection({
 }: Props) {
   return (
     <section id={id} className="scroll-mt-24 py-16 md:py-20 section-anchor">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-stretch lg:[&>*]:min-h-[clamp(420px,48vh,560px)]">
         {/* Imagen */}
         <m.figure
-          className="order-1 lg:order-none"
+          className="order-1 lg:order-none h-full flex"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
@@ -55,6 +55,7 @@ export default function StorySection({
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
           variants={stagger}
+          className="h-full flex flex-col"
         >
           <m.h2
             className="uppercase font-extrabold tracking-tight text-[clamp(1.4rem,1rem+2vw,2.2rem)] mb-4"
@@ -72,7 +73,7 @@ export default function StorySection({
           </div>
 
           {cta && (
-            <m.div className="mt-6" variants={fadeUp}>
+            <m.div className="mt-auto pt-6" variants={fadeUp}>
               <m.a
                 href={cta.href}
                 whileHover={{ scale: 1.03 }}

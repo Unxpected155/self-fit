@@ -8,7 +8,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 const LINKS = [
   { id: "intro", label: "Intro" },
   { id: "myStory", label: "My Story" },
-  { id: "protocols", label: "Our Protocols" },
+  { id: "method", label: "Our Method" },
   { id: "successStories", label: "Success Stories" },
   { id: "faq", label: "FAQ" },
 ] as const;
