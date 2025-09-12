@@ -1,3 +1,4 @@
+// src/sections/Testimonials.tsx
 import { motion as m, type Variants } from "framer-motion";
 import TestimonialCard from "../ui/TestimonialCard";
 
@@ -39,7 +40,7 @@ export default function Testimonials({
           {title}
         </m.h2>
 
-        {/* 👇 Subheadline */}
+        {/* Subheadline */}
         <m.p
           className="mt-2 mb-10 text-center text-[#A6A6A6] text-[clamp(.95rem,.85rem+.45vw,1.25rem)]"
           initial="hidden"
@@ -60,6 +61,30 @@ export default function Testimonials({
           {shown.map((t, i) => (
             <TestimonialCard key={i} src={t.src} alt={t.alt} name={t.name} />
           ))}
+        </m.div>
+
+        {/* Footer CTA */}
+        <m.div
+          className="mt-12 md:mt-16 text-center"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={fadeUp}
+        >
+          <p className="mb-4 text-[clamp(1rem,.9rem+.4vw,1.25rem)] text-white">
+            Want results like this?
+          </p>
+          <m.a
+            href="https://calendly.com/coachfrankfit/selffit-strategy-call"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center rounded-xl px-5 py-2.5 bg-primary text-white font-medium hover:opacity-90
+                       text-[clamp(.95rem,.8rem+.3vw,1.05rem)]"
+          >
+            Schedule a Call
+          </m.a>
         </m.div>
       </div>
     </section>

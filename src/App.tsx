@@ -7,6 +7,7 @@ import SuccessStories from "./components/sections/SuccessStories";
 import type { CaseStudyVideo } from "./types/case-studies";
 import FAQ from "./components/sections/FAQ";
 import OurMethod from "./components/sections/OurMethod";
+import Footer from "./components/sections/Footer";
 
 export default function App() {
   const heroCopy = {
@@ -198,6 +199,7 @@ export default function App() {
           items={testimonials}
         />
         <FAQ />
+        <Footer />
       </main>
     </div>
   );
