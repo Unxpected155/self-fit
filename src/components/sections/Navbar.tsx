@@ -8,7 +8,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 const LINKS = [
   { id: "intro", label: "Intro" },
   { id: "myStory", label: "My Story" },
-  { id: "method", label: "Our Method" },
+  { id: "method", label: "Our Process" },
   { id: "successStories", label: "Success Stories" },
   { id: "faq", label: "FAQ" },
 ] as const;
@@ -137,7 +137,7 @@ export default function Navbar() {
           {/* CTA desktop */}
           <div className="hidden md:block">
             <m.a
-              href="https://calendly.com/coachfrankfit/free-consultation-call"
+              href="https://calendly.com/coachfrankfit/selffit-strategy-call"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
@@ -145,7 +145,7 @@ export default function Navbar() {
               className="inline-flex items-center rounded-xl px-5 py-2.5 bg-primary text-white font-medium hover:opacity-90
                          text-[clamp(.95rem,.8rem+.3vw,1.05rem)]"
             >
-              Schedule a call
+              Schedule a Call
             </m.a>
           </div>
 
@@ -196,14 +196,14 @@ export default function Navbar() {
                 ))}
                 <li className="pt-1">
                   <m.a
-                    href="https://calendly.com/coachfrankfit/free-consultation-call"
+                    href="https://calendly.com/coachfrankfit/selffit-strategy-call"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileTap={{ scale: 0.985 }}
                     onClick={() => setOpen(false)}
                     className="inline-flex w-full justify-center rounded-xl px-4 py-2.5 bg-primary text-white font-medium hover:opacity-90"
                   >
-                    Schedule a call
+                    Schedule a Call
                   </m.a>
                 </li>
               </ul>

@@ -65,12 +65,12 @@ export default function OurMethod() {
           className="max-w-3xl"
         >
           <p className="text-sm tracking-widest font-semibold text-[#DA511F]">
-            OUR FOCUS
+            OUR PROCESS
           </p>
           <h2 className="mt-2 text-3xl/tight md:text-4xl/tight font-extrabold text-white">
             Building Lasting Results, Step by Step
           </h2>
-          <p className="mt-4 text-base md:text-lg text-zinc-300">
+          <p className="mt-4 text-base md:text-lg text-[#A6A6A6]">
             Most programs push diets or workouts in isolation. At SelfFit, we
             focus on the four areas that actually drive change, so busy
             professionals don’t just lose weight, they rebuild their health and
@@ -97,7 +97,7 @@ export default function OurMethod() {
               <h3 className="pl-8 text-lg md:text-xl font-extrabold text-white tracking-wide">
                 {c.title}
               </h3>
-              <p className="mt-3 pl-8 text-sm md:text-base text-zinc-300">
+              <p className="mt-3 pl-8 text-sm md:text-base text-[#A6A6A6]">
                 {c.body}
               </p>
 

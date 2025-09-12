@@ -24,7 +24,7 @@ const stats: Stat[] = [
     duration: 1.2,
   },
   {
-    value: 40,
+    value: 100,
     suffix: "+",
     titleLine1: "LIVES",
     titleLine2: "TRANSFORMED",

@@ -13,9 +13,9 @@ export default function App() {
     preheadline: "Engineers and Tech Leaders:",
     headline: "Unlock Your Energy and Confidence",
     subheadline:
-      "We help high-performing tech professionals break free from\nfatigue, burn fat and build lasting health while excelling at work.",
+      "We help high-performing tech professionals break free from\n fatigue, burn fat and build lasting health while excelling at work.",
     cta: {
-      label: "Schedule a call",
+      label: "Schedule a Call",
       href: "https://wa.me/50685466376?text=COACH!",
     },
   } as const;
@@ -31,13 +31,13 @@ export default function App() {
       src: "/photos/Coach_Before_After.webp",
       alt: "Your coach transformation",
     },
-    title: "My story",
+    title: "From Obese… to Helping 100+ Tech Professionals Take Back Their Health",
     paragraphs: [
-      "My name is Frank, and I wasn’t always the coach you see today. As a teen, I went from being active to sitting all day, playing games, and watching other guys walk around with athletic bodies. I was insecure, bullied, and at one point almost gave up on myself.",
-      "That moment became my turning point. I grabbed two dumbbells and a pillow and started training in my room. What began as survival became a passion that never left.",
-      "For years I tested, failed, and kept learning. I even coached a pro e-sports team. But for a long time, fitness was just an obsession. I still struggled to balance it with family, work, and life. It wasn’t until I built a method that actually fit real life that I finally broke through.",
-      "In 2023 I launched the SelfFit Method to help other busy professionals like me, men with demanding jobs, families, and little time. Since then, we’ve worked with engineers, project managers, and directors across the US and LATAM. Dropping between 20–60+ lbs, improving their health, and regaining the energy and confidence to show up better at work and at home.",
-      "That’s what this method is about: not just getting fit, but learning how to stay fit on your own.",
+      "My name is Frank, and I wasn’t always the coach you see today. In my teens I went from active to overweight, spending hours gaming while watching other guys walk around with athletic bodies. I felt insecure, bullied, and at one point almost gave up on myself.",
+      "That low became my turning point. With nothing more than two dumbbells and a pillow, I started training in my room. What began as survival turned into an obsession and eventually a system.",
+      "Over the next 18 years I tested everything: diets, endless gym hours, apps, you name it. But nothing worked long term, until I built a method that fit real life.",
+      "In 2023 I launched SelfFit to help busy tech leaders like me finally get results that last. Since then, we’ve worked with engineers, PMs, and directors across the US & LATAM, dropping 15–60+ lbs, regaining energy, and showing up stronger at work and at home.",
+      "This isn’t about fitness for fitness’ sake. It’s about giving high-performers the body, energy, and confidence to lead.",
     ] as const,
     cta: { label: "See Results", href: "#successStories" },
   } as const;
@@ -155,7 +155,7 @@ export default function App() {
             subheadline: (
               <>
                 We help high-performing tech professionals break free from
-                <br className="hidden md:block" />
+                <br className="hidden md:block" /> {' '}
                 fatigue, burn fat and build lasting health while excelling at
                 work.
               </>

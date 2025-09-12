@@ -108,7 +108,7 @@ export default function HeroVideo({
 
           {copy.subheadline && (
             <m.p
-              className="italic mt-2 text-[clamp(.95rem,.85rem+.45vw,1.25rem)] text-white/80 whitespace-pre-line"
+              className="italic mt-2 text-[clamp(.95rem,.85rem+.45vw,1.25rem)] text-[#A6A6A6] whitespace-pre-line"
               variants={fadeIn}
             >
               {copy.subheadline}
@@ -194,7 +194,7 @@ export default function HeroVideo({
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="mt-6"
+          className="mt-20"
         >
           <StatsStrip />
         </m.div>

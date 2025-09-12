@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "What’s the investment?",
-    a: "We offer a variety of services that adapt to certain needs for you as an individual or for your employees ($100 to $5000), that can be talked about once we understand your specific case. For that I would advise you to book a free consultation call with me or someone from my team.",
+    a: "To begin with, this is not a cost, it’s but a fraction of the medical bills, lost energy, and wasted time you’ll save. Most clients earn back multiples of their investment in performance and confidence. Now onto our program, we offer a variety of services that adapt to certain needs for you as an individual or for your employees ($100 to $5000), that can be talked about once we understand your specific case. For that I would advise you to book a Strategy Call directly with me or someone from my team.",
   },
   {
     q: "Is there a money-back guarantee?",

@@ -41,7 +41,7 @@ export default function Testimonials({
 
         {/* 👇 Subheadline */}
         <m.p
-          className="mt-2 mb-10 text-center text-white/70 text-[clamp(.95rem,.85rem+.45vw,1.25rem)]"
+          className="mt-2 mb-10 text-center text-[#A6A6A6] text-[clamp(.95rem,.85rem+.45vw,1.25rem)]"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
