@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "links": {
+      "intro": "Intro",
+      "myStory": "My Story",
+      "method": "Our Process",
+      "successStories": "Success Stories",
+      "faq": "FAQ"
+    },
+    "cta": "Schedule a Call",
+    "jumpToMain": "Jump to main content"
+  },
+  "hero": {
+    "preheadline": "Engineers and Tech Leaders:",
+    "headline": "Unlock Your Energy and Confidence",
+    "subheadline": "We help high-performing tech professionals break free from fatigue, burn fat and build lasting health while excelling at work.",
+    "cta": "Schedule a Call"
+  },
+  "heroMedia": {
+    "alt": "Coach training with dumbbells in cinematic light"
+  },
+ "story": {
+    "image": {
+      "alt": "Your coach transformation"
+    },
+    "title": "From Obese… to Helping 100+ Tech Professionals Take Back Their Health",
+    "paragraphs": [
+      "My name is Frank, and I wasn’t always the coach you see today. In my teens I went from active to overweight, spending hours gaming while watching other guys walk around with athletic bodies. I felt insecure, bullied, and at one point almost gave up on myself.",
+      "That low became my turning point. With nothing more than two dumbbells and a pillow, I started training in my room. What began as survival turned into an obsession and eventually a system.",
+      "Over the next 18 years I tested everything: diets, endless gym hours, apps, you name it. But nothing worked long term, until I built a method that fit real life.",
+      "In 2023 I launched SelfFit to help busy tech leaders like me finally get results that last. Since then, we’ve worked with engineers, PMs, and directors across the US & LATAM, dropping 15–60+ lbs, regaining energy, and showing up stronger at work and at home.",
+      "This isn’t about fitness for fitness’ sake. It’s about giving high-performers the body, energy, and confidence to lead."
+    ],
+    "cta": { "label": "See Results" }
+  },
+  "subheadline": "We help high-performing tech professionals break free from fatigue,\nburn fat and build lasting health while excelling at work.",
+  "testimonials": {
+    "title": "Real Clients. Real Results.",
+    "subheadline": "In just the first three months working with us.",
+    "cta": { "label": "Want results like this?", "button": "Schedule a Call" }
+  },
+  "process": {
+    "preheadline": "OUR PROCESS",
+    "title": "Building Lasting Results, Step by Step",
+    "description": "Most programs push diets or workouts in isolation. At SelfFit, we focus on the four areas that actually drive change, so busy professionals don’t just lose weight, they rebuild their health and keep it for life.",
+    "cardTitles": {
+      "mindset": "MINDSET",
+      "rest": "REST",
+      "nutrition": "NUTRITION",
+      "exercise": "EXERCISE"
+    },
+    "cards": [
+      "Every transformation starts in the mind. We work on your identity, habits, and mental discipline so change sticks. Weekly 1:1 calls and our private community keep you accountable and motivated, even on your busiest weeks.",
+      "Sleep isn’t the same as recovery. We teach you how to reduce stress, improve sleep quality, and optimize hormones. From evening routines to proven recovery strategies, you’ll wake up sharper, with energy you didn’t know you had.",
+      "No crash diets. We start with what you already eat and improve it step by step. You’ll get daily feedback and clear strategies to hit your targets without skipping family meals. That’s how fat loss becomes sustainable and effortless.",
+      "We start with a movement assessment to design training that fits your body, schedule, and goals. You’ll train for strength, fat loss, and posture with efficient sessions. Maximum of 3 hours per week is enough to drive results and still fit into your life."
+    ]
+  },
+  "successStories": {
+    "title": "Success Stories"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": {
+      "1": {
+        "question": "Is this program too advanced for me?",
+        "answer": "Not at all. SelfFit is designed for tech professionals at any level, from beginners to those with training experience. Every plan is customized after a mobility and lifestyle assessment."
+      },
+      "2": {
+        "question": "What equipment do I need?",
+        "answer": "We adapt your plan to what you have available: gym access, a home setup with dumbbells, or even just bodyweight. The system works in any environment. In fact many of our clients are constant travelers that at times stay in hotels with little to no equipment."
+      },
+      "3": {
+        "question": "Do I need to follow a strict diet?",
+        "answer": "No. We don’t believe in rigid meal plans. You’ll get practical nutrition strategies that fit your lifestyle, allowing flexibility for social events and family meals while still achieving your goals."
+        },
+      "4": {
+        "question": "How fast will I see results?",
+        "answer": "Most clients start noticing changes in energy and focus within the first 2 - 3 weeks. Visible fat loss and body composition results typically appear within the first month."
+      },
+      "5": {
+        "question": "I’ve tried many programs before and nothing worked, how is this different?",
+        "answer": "Almost all our clients have told us this! In SelfFit we combine four pillars: mindset, rest, nutrition, and training, tailored to your career, schedule, and lifestyle. That’s why over 40 tech professionals have achieved lasting transformations. You can see more examples on our Instagram: @coachfrankfit."
+      },
+      "6": {
+        "question": "How much time will this take with my busy schedule?",
+        "answer": "Most workouts take 45 to 60 minutes, three to four times per week tops. Plus, the nutrition system saves you time instead of adding stress. The program is designed for efficiency. We focus on proven training methods and combine them with nutrition and recovery strategies to maximize results in minimal time."
+      },
+      "7": {
+        "question": "What’s the investment?",
+        "answer": "To begin with, this is not a cost, it’s but a fraction of the medical bills, lost energy, and wasted time you’ll save. Most clients earn back multiples of their investment in performance and confidence. Now onto our program, we offer a variety of services that adapt to certain needs for you as an individual or for your employees ($100 to $5000), that can be talked about once we understand your specific case. For that I would advise you to book a Strategy Call directly with me or someone from my team."
+      },
+      "8": {
+        "question": "Is there a money-back guarantee?",
+        "answer": "Yes. If you don’t achieve the goal we set together at the start, you get a full refund, plus we’ll cover the cost of a pizza. Everything is backed by contract."
+      },
+      "9": {
+        "question": "Can this work for teams or companies?",
+        "answer": "SelfFit has directly not only impacted the looks and self satisfaction of many clients, but improved their overall performance to the point which it helped them land career growth opportunities or raises. If you care about your team and their performance, SelfFit is proven to help in such areas."
+      }
+    }
+  }
+}

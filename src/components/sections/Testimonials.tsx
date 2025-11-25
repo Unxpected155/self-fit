@@ -1,6 +1,6 @@
-// src/sections/Testimonials.tsx
 import { motion as m, type Variants } from "framer-motion";
 import TestimonialCard from "../ui/TestimonialCard";
+import { useTranslation } from "react-i18next";
 
 type Testimonial = { src: string; alt: string; name: string };
 type Props = {
@@ -22,6 +22,7 @@ export default function Testimonials({
   title = "Their Results",
   items,
 }: Props) {
+  const { t } = useTranslation();
   const shown = items.slice(0, 12);
 
   return (
@@ -48,7 +49,7 @@ export default function Testimonials({
           viewport={{ once: true, amount: 0.5 }}
           variants={fadeUp}
         >
-          In just the first three months working with us.
+          {t("testimonials.subheadline")}
         </m.p>
 
         <m.div
@@ -72,7 +73,7 @@ export default function Testimonials({
           variants={fadeUp}
         >
           <p className="mb-4 text-[clamp(1rem,.9rem+.4vw,1.25rem)] text-white">
-            Want results like this?
+            {t("testimonials.cta.label")}
           </p>
           <m.a
             href="https://calendly.com/coachfrankfit/selffit-strategy-call"
@@ -83,7 +84,7 @@ export default function Testimonials({
             className="inline-flex items-center rounded-xl px-5 py-2.5 bg-primary text-white font-medium hover:opacity-90
                        text-[clamp(.95rem,.8rem+.3vw,1.05rem)]"
           >
-            Schedule a Call
+            {t("testimonials.cta.button")}
           </m.a>
         </m.div>
       </div>

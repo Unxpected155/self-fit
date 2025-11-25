@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -5,37 +6,37 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
 };
 
+export default function OurMethod() {
+  const { t } = useTranslation();
+
 const cards = [
   {
     n: "1",
-    title: "MINDSET",
-    body: "Every transformation starts in the mind. We work on your identity, habits, and mental discipline so change sticks. Weekly 1:1 calls and our private community keep you accountable and motivated, even on your busiest weeks.",
+    title: t("process.cardTitles.mindset"),
+    body: t("process.cards.0"),
   },
   {
     n: "2",
-    title: "REST",
-    body: "Sleep isn’t the same as recovery. We teach you how to reduce stress, improve sleep quality, and optimize hormones. From evening routines to proven recovery strategies, you’ll wake up sharper, with energy you didn’t know you had.",
+    title: t("process.cardTitles.rest"),
+    body: t("process.cards.1"),
   },
   {
     n: "3",
-    title: "NUTRITION",
-    body: "No crash diets. We start with what you already eat and improve it step by step. You’ll get daily feedback and clear strategies to hit your targets without skipping family meals. That’s how fat loss becomes sustainable and effortless.",
+    title: t("process.cardTitles.nutrition"),
+    body: t("process.cards.2"),
   },
   {
     n: "4",
-    title: "EXERCISE",
-    body: "We start with a movement assessment to design training that fits your body, schedule, and goals. You’ll train for strength, fat loss, and posture with efficient sessions. Maximum of 3 hours per week is enough to drive results and still fit into your life.",
+    title: t("process.cardTitles.exercise"),
+    body: t("process.cards.3"),
   },
 ];
-
-export default function OurMethod() {
   return (
     <section
       id="method"
       className="relative py-24 md:py-28 section-anchor"
       aria-label="Our Method"
     >
-      {/* Fondo: gradiente + patrón sutil */}
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
@@ -56,7 +57,6 @@ export default function OurMethod() {
       />
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Encabezado */}
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -65,20 +65,16 @@ export default function OurMethod() {
           className="max-w-3xl"
         >
           <p className="text-sm tracking-widest font-semibold text-[#DA511F]">
-            OUR PROCESS
+            {t("process.preheadline")}
           </p>
           <h2 className="mt-2 text-3xl/tight md:text-4xl/tight font-extrabold text-white">
-            Building Lasting Results, Step by Step
+            {t("process.title")}
           </h2>
           <p className="mt-4 text-base md:text-lg text-[#A6A6A6]">
-            Most programs push diets or workouts in isolation. At SelfFit, we
-            focus on the four areas that actually drive change, so busy
-            professionals don’t just lose weight, they rebuild their health and
-            keep it for life.
+            {t("process.description")}
           </p>
         </motion.div>
 
-        {/* Grid */}
         <div className="mt-10 grid gap-6 sm:gap-7 md:gap-8 sm:grid-cols-2">
           {cards.map((c, i) => (
             <motion.article
@@ -89,7 +85,6 @@ export default function OurMethod() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: 0.05 * i, duration: 0.45 }}
             >
-              {/* Número grande lateral */}
               <div className="absolute -left-3 -top-3 h-10 w-10 grid place-items-center rounded-xl bg-gradient-to-br from-[#DA511F] to-[#b5411a] text-white font-extrabold text-xl shadow-[0_8px_24px_rgba(218,81,31,0.45)]">
                 {c.n}
               </div>
@@ -101,7 +96,6 @@ export default function OurMethod() {
                 {c.body}
               </p>
 
-              {/* Borde activo al hover */}
               <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/5 group-hover:ring-[#DA511F]/40 transition" />
             </motion.article>
           ))}

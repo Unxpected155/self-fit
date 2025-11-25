@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Navbar from "./components/sections/Navbar";
 import HeroVideo from "./components/sections/HeroVideo";
 import StorySection from "./components/sections/StorySection";
@@ -10,13 +11,13 @@ import OurMethod from "./components/sections/OurMethod";
 import Footer from "./components/sections/Footer";
 
 export default function App() {
+  const { t } = useTranslation();
   const heroCopy = {
-    preheadline: "Engineers and Tech Leaders:",
-    headline: "Unlock Your Energy and Confidence",
-    subheadline:
-      "We help high-performing tech professionals break free from\n fatigue, burn fat and build lasting health while excelling at work.",
+    preheadline: t("hero.preheadline"),
+    headline: t("hero.headline"),
+    subheadline: t("hero.subheadline"),
     cta: {
-      label: "Schedule a Call",
+      label: t("hero.cta"),
       href: "https://wa.me/50685466376?text=COACH!",
     },
   } as const;
@@ -24,23 +25,23 @@ export default function App() {
   const heroMedia = {
     src: "/videos/Vsl_Video.mp4",
     poster: "/photos/SelfFit_Logo_Blanco.webp",
-    alt: "Coach training with dumbbells in cinematic light",
+    alt: t("heroMedia.alt"),
   } as const;
 
   const story = {
     image: {
       src: "/photos/Coach_Before_After.webp",
-      alt: "Your coach transformation",
+      alt: t("story.image.alt"),
     },
-    title: "From Obese… to Helping 100+ Tech Professionals Take Back Their Health",
+    title: t("story.title"),
     paragraphs: [
-      "My name is Frank, and I wasn’t always the coach you see today. In my teens I went from active to overweight, spending hours gaming while watching other guys walk around with athletic bodies. I felt insecure, bullied, and at one point almost gave up on myself.",
-      "That low became my turning point. With nothing more than two dumbbells and a pillow, I started training in my room. What began as survival turned into an obsession and eventually a system.",
-      "Over the next 18 years I tested everything: diets, endless gym hours, apps, you name it. But nothing worked long term, until I built a method that fit real life.",
-      "In 2023 I launched SelfFit to help busy tech leaders like me finally get results that last. Since then, we’ve worked with engineers, PMs, and directors across the US & LATAM, dropping 15–60+ lbs, regaining energy, and showing up stronger at work and at home.",
-      "This isn’t about fitness for fitness’ sake. It’s about giving high-performers the body, energy, and confidence to lead.",
+      t("story.paragraphs.0"),
+      t("story.paragraphs.1"),
+      t("story.paragraphs.2"),
+      t("story.paragraphs.3"),
+      t("story.paragraphs.4"),
     ] as const,
-    cta: { label: "See Results", href: "#successStories" },
+    cta: { label: t("story.cta.label"), href: "#successStories" },
   } as const;
 
   const caseStudyVideos = [
@@ -120,7 +121,6 @@ export default function App() {
   return (
     <div id="top">
       <div className="absolute inset-0 -z-10">
-        {/* Imagen de fondo responsiva */}
         <div
           className="
       absolute inset-0
@@ -131,7 +131,6 @@ export default function App() {
     "
           aria-hidden
         />
-        {/* Overlay con gradientes más suaves */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -153,14 +152,7 @@ export default function App() {
           copy={{
             preheadline: heroCopy.preheadline,
             headline: heroCopy.headline,
-            subheadline: (
-              <>
-                We help high-performing tech professionals break free from
-                <br className="hidden md:block" /> {' '}
-                fatigue, burn fat and build lasting health while excelling at
-                work.
-              </>
-            ),
+            subheadline: (t("subheadline")),
             cta: {
               label: heroCopy.cta.label,
               href: heroCopy.cta.href,
@@ -182,6 +174,7 @@ export default function App() {
         <OurMethod />
         <SuccessStories
           id="successStories"
+          title={t("successStories.title")}
           videos={[
             {
               title: caseStudyVideos[0].title,
@@ -195,7 +188,7 @@ export default function App() {
         />
         <Testimonials
           id="testimonials"
-          title="Real Clients. Real Results."
+          title={t("testimonials.title")}
           items={testimonials}
         />
         <FAQ />

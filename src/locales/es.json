@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "links": {
+      "intro": "Intro",
+      "myStory": "Mi Historia",
+      "method": "Nuestro Proceso",
+      "successStories": "Historias de Éxito",
+      "faq": "Preguntas Frecuentes"
+    },
+    "cta": "Agenda una Llamada",
+    "jumpToMain": "Saltar al contenido principal"
+  },
+  "hero": {
+    "preheadline": "Ingenieros y Líderes Técnicos:",
+    "headline": "Desbloquea tu Energía y Confianza",
+    "subheadline": "Ayudamos a profesionales de tecnología a liberarse del cansancio, quemar grasa y construir salud duradera mientras destacan en su trabajo.",
+    "cta": "Agenda una Llamada"
+  },
+  "heroMedia": {
+    "alt": "Entrenador levantando mancuernas en una escena cinematográfica"
+  },
+
+  "story": {
+    "image": {
+      "alt": "Transformación del coach"
+    },
+    "title": "De Obeso… a Ayudar a Más de 100 Profesionales Tech a Recuperar su Salud",
+    "paragraphs": [
+      "Mi nombre es Frank, y no siempre fui el coach que ves hoy. En mi adolescencia pasé de ser activo a tener sobrepeso, pasando horas jugando mientras veía a otros caminar con cuerpos atléticos. Me sentía inseguro, me hacían bullying y en un punto casi me rindo conmigo mismo.",
+      "Ese punto bajo se convirtió en mi momento decisivo. Con solo dos mancuernas y una almohada, comencé a entrenar en mi cuarto. Lo que empezó como supervivencia se convirtió en una obsesión y eventualmente en un sistema.",
+      "Durante los siguientes 18 años probé de todo: dietas, horas interminables de gimnasio, apps, lo que fuera. Pero nada funcionaba a largo plazo, hasta que construí un método que se ajustaba a la vida real.",
+      "En 2023 lancé SelfFit para ayudar a líderes tech ocupados como yo a obtener resultados duraderos. Desde entonces hemos trabajado con ingenieros, PMs y directores en EE.UU. y LATAM, bajando entre 7 y 27 kg, recuperando energía y mostrando un mejor rendimiento en el trabajo y en casa.",
+      "Esto no se trata solo de fitness por fitness. Se trata de darle a los high-performers el cuerpo, la energía y la confianza para liderar."
+    ],
+    "cta": { "label": "Ver Resultados" }
+  },
+  "subheadline": "Ayudamos a profesionales de tecnología de alto rendimiento a liberarse del cansancio,\na quemar grasa y construir una salud duradera mientras destacan en su trabajo.",
+  "testimonials": {
+    "title": "Clientes reales. Resultados reales.",
+    "subheadline": "En solo los primeros tres meses trabajando con nosotros.",
+    "cta": {
+      "label": "¿Quieres resultados como estos?",
+      "button": "Agenda una llamada"
+    }
+  },
+  "process": {
+    "preheadline": "NUESTRO PROCESO",
+    "title": "Construyendo Resultados Duraderos, Paso a Paso",
+    "description": "La mayoría de los programas promueven dietas o entrenamientos de forma aislada. En SelfFit, nos enfocamos en las cuatro áreas que realmente impulsan el cambio, para que los profesionales ocupados no solo pierdan peso, sino que reconstruyan su salud y la mantengan de por vida.",
+    "cardTitles": {
+      "mindset": "MENTALIDAD",
+      "rest": "DESCANSO",
+      "nutrition": "NUTRICIÓN",
+      "exercise": "EJERCICIO"
+    },
+    "cards": [
+      "Toda transformación comienza en la mente. Trabajamos tu identidad, hábitos y disciplina mental para que el cambio perdure. Llamadas 1:1 semanales y nuestra comunidad privada te mantienen responsable y motivado, incluso en tus semanas más ocupadas.",
+      "Dormir no es lo mismo que recuperarse. Te enseñamos cómo reducir el estrés, mejorar la calidad del sueño y optimizar tus hormonas. Desde rutinas nocturnas hasta estrategias probadas de recuperación, despertarás más enfocado y con energía que no sabías que tenías.",
+      "Nada de dietas extremas. Empezamos con lo que ya comes y lo mejoramos paso a paso. Recibirás retroalimentación diaria y estrategias claras para alcanzar tus objetivos sin dejar de compartir comidas en familia. Así es como la pérdida de grasa se vuelve sostenible y sin esfuerzo.",
+      "Comenzamos con una evaluación de movimiento para diseñar un entrenamiento que se adapte a tu cuerpo, horario y metas. Entrenarás para ganar fuerza, perder grasa y mejorar tu postura con sesiones eficientes. Un máximo de 3 horas por semana es suficiente para obtener resultados y seguir encajando en tu vida."
+    ]
+  },
+  "successStories": {
+    "title": "Historias de Éxito"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "items": {
+      "1": {
+        "question": "¿Este programa es demasiado avanzado para mí?",
+        "answer": "Para nada. SelfFit está diseñado para profesionales del sector tecnológico de cualquier nivel, desde principiantes hasta quienes ya tienen experiencia. Cada plan se personaliza después de una evaluación de movilidad y estilo de vida."
+      },
+      "2": {
+        "question": "¿Qué equipo necesito?",
+        "answer": "Adaptamos tu plan a lo que tengas disponible: acceso a gimnasio, un espacio en casa con mancuernas o incluso solo peso corporal. El sistema funciona en cualquier entorno. De hecho, muchos de nuestros clientes viajan constantemente y entrenan incluso en hoteles con poco o nada de equipo."
+      },
+      "3": {
+        "question": "¿Debo seguir una dieta estricta?",
+        "answer": "No. No creemos en planes de comida rígidos. Recibirás estrategias nutricionales prácticas que se adapten a tu estilo de vida, permitiéndote mantener flexibilidad para eventos sociales y comidas familiares mientras alcanzas tus objetivos."
+      },
+      "4": {
+        "question": "¿Qué tan rápido veré resultados?",
+        "answer": "La mayoría de los clientes comienzan a notar cambios en energía y concentración dentro de las primeras 2–3 semanas. Los cambios visibles en composición corporal suelen aparecer dentro del primer mes."
+      },
+      "5": {
+        "question": "He probado muchos programas antes y nada funcionó. ¿Qué hace diferente a este?",
+        "answer": "¡Eso nos lo dicen casi todos nuestros clientes! En SelfFit combinamos cuatro pilares: mentalidad, descanso, nutrición y entrenamiento, adaptados a tu carrera, horario y estilo de vida. Por eso más de 40 profesionales del sector tech han logrado transformaciones sostenibles. Puedes ver más ejemplos en nuestro Instagram: @coachfrankfit."
+      },
+      "6": {
+        "question": "¿Cuánto tiempo requiere si tengo una agenda ocupada?",
+        "answer": "La mayoría de las sesiones duran entre 45 y 60 minutos, tres o cuatro veces por semana. Además, el sistema de nutrición te ahorra tiempo en lugar de agregar estrés. El programa está diseñado para la máxima eficiencia, combinando entrenamiento probado con nutrición y recuperación para lograr resultados en el menor tiempo posible."
+      },
+      "7": {
+        "question": "¿Cuál es la inversión?",
+        "answer": "Para comenzar, esto no es un gasto, sino una fracción de lo que ahorrarás en facturas médicas, pérdida de energía y tiempo desperdiciado. La mayoría de los clientes recuperan varias veces su inversión en rendimiento y confianza. Ofrecemos diferentes servicios que se adaptan a individuos o empresas (de $100 a $5000), y podemos definir cuál es el ideal para ti una vez que entendamos tu caso. Para eso te recomiendo agendar una Strategy Call conmigo o con alguien de mi equipo."
+      },
+      "8": {
+        "question": "¿Hay garantía de devolución de dinero?",
+        "answer": "Sí. Si no logras la meta que definimos juntos al inicio, te devolvemos el 100% del dinero, y además te pagamos una pizza. Todo está respaldado por contrato."
+      },
+      "9": {
+        "question": "¿Esto también funciona para equipos o empresas?",
+        "answer": "SelfFit no solo ha mejorado la apariencia física y satisfacción personal de muchos clientes, sino que también ha mejorado su desempeño laboral, ayudándolos incluso a conseguir ascensos u oportunidades profesionales. Si realmente te importa tu equipo y su rendimiento, SelfFit está comprobado para ayudar en esas áreas."
+      }
+    }
+  }
+}

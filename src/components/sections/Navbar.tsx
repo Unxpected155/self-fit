@@ -1,17 +1,11 @@
-// src/sections/Navbar.tsx
+import i18n from "../../i18n"
+import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion as m, AnimatePresence, type Variants } from "framer-motion";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import useWindowSize from "../../hooks/useWindowSize";
 
-const LINKS = [
-  { id: "intro", label: "Intro" },
-  { id: "myStory", label: "My Story" },
-  { id: "method", label: "Our Process" },
-  { id: "successStories", label: "Success Stories" },
-  { id: "faq", label: "FAQ" },
-] as const;
 
 // Animations
 const headerIn: Variants = {
@@ -44,28 +38,43 @@ const mobileMenu: Variants = {
 };
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { width } = useWindowSize();
+  const [lang, setLang] = useState<"en" | "es">("es");
 
-  // Hook de sección activa (con click handler para marcar al instante)
+  const toggleLang = () => {
+    setLang((prev) => (prev === "en" ? "es" : "en"));
+    i18n.changeLanguage(lang);
+  };
+
+  const LINKS = [
+  { id: "intro", label: t("nav.links.intro") },
+  { id: "myStory", label: t("nav.links.myStory") },
+  { id: "method", label: t("nav.links.method") },
+  { id: "successStories", label: t("nav.links.successStories") },
+  { id: "faq", label: t("nav.links.faq") },
+] as const;
+
+
+  const { width } = useWindowSize();
   const { active, handleNavClick } = useActiveSection(
     LINKS.map((l) => l.id),
     { offsetTop: 96 }
   );
 
-  // cerrar menú al pasar a desktop
   useEffect(() => {
     if (width >= 768 && open) setOpen(false);
   }, [width, open]);
 
-  // estado de scroll para fondo/sombra
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  
 
   return (
     <m.header
@@ -80,12 +89,11 @@ export default function Navbar() {
           : "bg-black/50"
       }`}
     >
-      {/* Skip link accesible */}
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:block p-2 bg-white text-black"
       >
-        Jump to main content
+        {t("jumpToContent", "Jump to main content")}
       </a>
 
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -134,6 +142,21 @@ export default function Navbar() {
             </m.ul>
           </nav>
 
+          {/* Desktop Language Button */}
+          <button
+            onClick={toggleLang}
+            className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/20 hover:border-white/40 transition-colors"
+          >
+            <img
+              src={lang === "en" ? "/flags/en.svg" : "/flags/es.svg"}
+              alt="Language"
+              className="w-5 h-5"
+            />
+            <span className="text-white text-sm">
+              {lang === "en" ? "EN" : "ES"}
+            </span>
+          </button>
+
           {/* CTA desktop */}
           <div className="hidden md:block">
             <m.a
@@ -145,9 +168,21 @@ export default function Navbar() {
               className="inline-flex items-center rounded-xl px-5 py-2.5 bg-primary text-white font-medium hover:opacity-90
                          text-[clamp(.95rem,.8rem+.3vw,1.05rem)]"
             >
-              Schedule a Call
+              {t("nav.cta")}
             </m.a>
           </div>
+
+          {/* Switch Lang Mobile */}
+          <button
+            onClick={toggleLang}
+            className="md:hidden mr-2 p-2 rounded hover:bg-white/10"
+          >
+            <img
+              src={lang === "en" ? "/flags/en.svg" : "/flags/es.svg"}
+              className="w-6 h-6"
+              alt="Language"
+            />
+          </button>
 
           {/* Botón menú móvil */}
           <m.button
@@ -194,6 +229,27 @@ export default function Navbar() {
                     </m.a>
                   </li>
                 ))}
+
+                {/* Mobile Language Switch */}
+                <li>
+                  <button
+                    onClick={() => {
+                      toggleLang();
+                      setOpen(false);
+                    }}
+                    className="flex items-center gap-3 rounded px-3 py-2 text-white hover:bg-white/10 transition"
+                  >
+                    <img
+                      src={lang === "en" ? "/flags/en.svg" : "/flags/es.svg"}
+                      alt="Language"
+                      className="w-5 h-5"
+                    />
+                    <span className="text-base">
+                      {lang === "en" ? "English" : "Español"}
+                    </span>
+                  </button>
+                </li>
+
                 <li className="pt-1">
                   <m.a
                     href="https://calendly.com/coachfrankfit/selffit-strategy-call"
